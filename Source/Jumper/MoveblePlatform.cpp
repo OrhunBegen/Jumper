@@ -15,6 +15,7 @@ AMoveblePlatform::AMoveblePlatform()
 void AMoveblePlatform::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
 }
 
