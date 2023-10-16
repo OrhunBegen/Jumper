@@ -26,4 +26,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	FVector MyVector;
 
+	UPROPERTY(EditAnywhere)
+	FVector LocalVector;
+
 };

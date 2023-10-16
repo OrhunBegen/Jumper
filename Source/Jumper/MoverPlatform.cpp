@@ -16,8 +16,7 @@ void AMoverPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 
-
-	SetActorLocation(MyVector);
+	
 	
 }
 
@@ -25,6 +24,14 @@ void AMoverPlatform::BeginPlay()
 void AMoverPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	MyVector.Y = MyVector.Y + 10;
+
+	FVector LocalVector = MyVector;
+
+	LocalVector.Z = LocalVector.Z + 10;
+
+	SetActorLocation(LocalVector);
 
 }
 
