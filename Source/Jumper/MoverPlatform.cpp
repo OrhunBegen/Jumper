@@ -15,7 +15,10 @@ AMoverPlatform::AMoverPlatform()
 void AMoverPlatform::BeginPlay()
 {
 	Super::BeginPlay();
-	MyX = MyVector.X;	
+
+
+	SetActorLocation(MyVector);
+	
 }
 
 // Called every frame
