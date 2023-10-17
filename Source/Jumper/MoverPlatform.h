@@ -23,10 +23,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere)
-	FVector MyVector;
+	UPROPERTY(EditAnywhere, Category="Moving Plaform")
+	FVector PlatformVelocity = FVector(50, 0, 0);
+	FVector StartLocation;
 
-	UPROPERTY(EditAnywhere)
-	FVector LocalVector;
-
+	UPROPERTY(VisibleAnywhere)
+	float DistanceTravelled = -1;
 };
