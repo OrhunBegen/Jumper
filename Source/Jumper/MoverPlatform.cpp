@@ -15,20 +15,15 @@ void AMoverPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 	StartLocation = GetActorLocation();
-
 	UE_LOG(LogTemp, Display, TEXT("Your text"));
 	UE_LOG(LogTemp, Warning, TEXT("Your text"));
 	UE_LOG(LogTemp, Error, TEXT("Your text"));
-
-
 }
 
 // Called every frame
 void AMoverPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-
 	//Move Platform forwards
 	//Get Current Location
 	FVector CurrentLocation = GetActorLocation();	
@@ -38,19 +33,14 @@ void AMoverPlatform::Tick(float DeltaTime)
 	SetActorLocation(CurrentLocation);
 	//Send Platform back if gone too far
 	//Check how far it has gone
-	float MovedDistance	 = FVector::Dist(StartLocation, CurrentLocation);
+	const float MovedDistance = FVector::Dist(StartLocation, CurrentLocation);
 	//Reverse direction of motion if it s gone too far
 	if (MovedDistance > MovebleDistance)
 	{
-		FVector	MoveDirection = PlatformVelocity.GetSafeNormal();
+		const FVector	MoveDirection = PlatformVelocity.GetSafeNormal();
 		StartLocation = StartLocation + (MoveDirection *MovebleDistance);
 		SetActorLocation(StartLocation);
 		PlatformVelocity = -PlatformVelocity;
-
 	}
-	
-	
-
-
 }
 
