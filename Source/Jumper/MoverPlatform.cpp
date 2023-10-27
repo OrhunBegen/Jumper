@@ -8,9 +8,6 @@ AMoverPlatform::AMoverPlatform()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	
-
 }
 
 // Called when the game starts or when spawned
@@ -20,6 +17,10 @@ void AMoverPlatform::BeginPlay()
 	StartLocation = GetActorLocation();
 
 	UE_LOG(LogTemp, Display, TEXT("Your text"));
+	UE_LOG(LogTemp, Warning, TEXT("Your text"));
+	UE_LOG(LogTemp, Error, TEXT("Your text"));
+
+
 }
 
 // Called every frame
@@ -30,19 +31,12 @@ void AMoverPlatform::Tick(float DeltaTime)
 
 	//Move Platform forwards
 	//Get Current Location
-	
-
-
-	FVector CurrentLocation = GetActorLocation();
-	
-	
+	FVector CurrentLocation = GetActorLocation();	
 	//Add vector to the that location
 	CurrentLocation = (PlatformVelocity*DeltaTime) + CurrentLocation;
 	//Set new location
-	
 	SetActorLocation(CurrentLocation);
 	//Send Platform back if gone too far
-	
 	//Check how far it has gone
 	float MovedDistance	 = FVector::Dist(StartLocation, CurrentLocation);
 	//Reverse direction of motion if it s gone too far
