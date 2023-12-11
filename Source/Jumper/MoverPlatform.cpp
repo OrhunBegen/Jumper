@@ -23,7 +23,7 @@ void AMoverPlatform::BeginPlay()
 void AMoverPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 	MovePlatform(DeltaTime);
 	RotatePlatform(DeltaTime);
 }
@@ -33,6 +33,9 @@ void AMoverPlatform::MovePlatform(float DeltaTime)
 {
 	if (ShouldPlatformReturn())
 	{
+		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
+		StartLocation = StartLocation + MoveDirection * MoveDistance;
+
 		SetActorLocation(StartLocation);
 		PlatformVelocity = -PlatformVelocity;
 	}
@@ -50,8 +53,6 @@ void AMoverPlatform::RotatePlatform(float DeltaTime)
 	CurrentRotation = CurrentRotation + RotationVelocity * DeltaTime;
 	SetActorRotation(CurrentRotation);
 }
-
-
 bool AMoverPlatform::ShouldPlatformReturn() const
 {
 	return GetDistanceMoved() > MoveDistance;
