@@ -49,9 +49,7 @@ void AMoverPlatform::MovePlatform(float DeltaTime)
 
 void AMoverPlatform::RotatePlatform(float DeltaTime)
 {
-	FRotator CurrentRotation = GetActorRotation();
-	CurrentRotation = CurrentRotation + RotationVelocity * DeltaTime;
-	SetActorRotation(CurrentRotation);
+	AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 bool AMoverPlatform::ShouldPlatformReturn() const
 {
